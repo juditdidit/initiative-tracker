@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { InitiativeRoutingModule } from './initiative-routing.module';
 import { AddCreatureComponent } from './add-creature/add-creature.component';
