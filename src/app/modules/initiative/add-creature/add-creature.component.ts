@@ -22,7 +22,10 @@ export class AddCreatureComponent {
    * Adds Creature data to the initiative list.
    */
   addCreature() {
+    this.initiativeService.increaseCreatureCounter();
+
     this.initiativeService.addCreature({
+      id: this.initiativeService.creatureCounter,
       name: this.creatureName || 'Nameless',
       roll: this.creatureRoll || 0,
       type: this.creatureType,

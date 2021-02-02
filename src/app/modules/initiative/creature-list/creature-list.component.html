@@ -1,6 +1,7 @@
 <div *ngIf="initiativeService.creaturesArr.length > 0">
-    <div class="creature-list border rounded-lg px-3 mt-4">
+    <div class="border rounded-lg px-3 mt-4">
         <creature *ngFor="let creature of initiativeService.creaturesArr;
+            trackBy: getCreatureID;
             index as i;
             last as isLast"
             [creature]="creature"

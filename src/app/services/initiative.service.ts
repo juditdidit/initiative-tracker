@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 export type CREATURE_TYPE = 'good' | 'bad' | 'neutral';
 
 export interface Creature {
+  id: number;
   name: string;
   roll: number;
   type: CREATURE_TYPE;
@@ -13,18 +14,25 @@ export interface Creature {
   providedIn: 'root'
 })
 export class InitiativeService {
-
   readonly creaturesArr: Creature[] = [
-    { name: 'Greg', roll: 15, type: 'neutral', dead: false },
-    { name: 'Jak', roll: 5, type: 'good', dead: false },
-    { name: 'Sammy', roll: 3, type: 'neutral', dead: true },
-    { name: 'Jynx', roll: 1, type: 'bad', dead: false }
+    { id: 0, name: 'Greg', roll: 15, type: 'neutral', dead: false },
+    { id: 1, name: 'Jak', roll: 5, type: 'good', dead: false },
+    { id: 2, name: 'Sammy', roll: 3, type: 'neutral', dead: true },
+    { id: 3, name: 'Jynx', roll: 1, type: 'bad', dead: false }
   ]
+
+  /**
+   * Keeps a counter in order to assign a unique ID per Creature added.
+   */
+  creatureCounter: number = 3;
+  increaseCreatureCounter() {
+    this.creatureCounter += 1;
+  }
 
   /**
    * Adds a creature to the initiative list.
    *
-   * @param newCreature The Creature to be added.
+   * @param creature The Creature to be added.
    */
   addCreature(creature: Creature): void {
     this.creaturesArr.push(creature);

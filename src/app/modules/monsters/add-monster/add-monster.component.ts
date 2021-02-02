@@ -21,7 +21,10 @@ export class AddMonsterComponent {
    * Adds the monster data to the monsters list.
    */
   addMonster() {
+    this.monstersService.increaseMonsterCounter();
+
     this.monstersService.addMonster({
+      id: this.monstersService.monsterCounter,
       name: this.monsterName || "Abominable Monster",
       currentHP: this.monsterHealth || 0,
       maxHP: this.monsterHealth || 0

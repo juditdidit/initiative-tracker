@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export interface Monster {
+  id: number;
   name: string;
   currentHP: number;
   maxHP: number;
@@ -12,13 +13,21 @@ export interface Monster {
 export class MonstersService {
 
   readonly monstersArr: Monster[] = [
-    {name: 'Kraken', currentHP: 50, maxHP: 100},
-    {name: 'Karen', currentHP: 49, maxHP: 100},
-    {name: 'Rachel', currentHP: 25, maxHP: 100}
+    {id: 0, name: 'Kraken', currentHP: 50, maxHP: 100},
+    {id: 1, name: 'Karen', currentHP: 49, maxHP: 100},
+    {id: 2, name: 'Rachel', currentHP: 25, maxHP: 100}
   ];
 
   /**
-   * Add a monster to the monsters list.
+   * Keeps a counter in order to assign a unique ID per Monster added.
+   */
+  monsterCounter: number = 2;
+  increaseMonsterCounter() {
+    this.monsterCounter += 1;
+  }
+
+  /**
+   * Add a new monster to the monsters list.
    *
    * @param newMonster The Monster to be added.
    */

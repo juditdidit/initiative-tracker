@@ -1,6 +1,7 @@
 <div *ngIf="monstersService.monstersArr.length > 0">
     <div class="border rounded-lg px-3 mt-4">
-        <monster *ngFor="let monster of monstersService.monstersArr; 
+        <monster *ngFor="let monster of monstersService.monstersArr;
+            trackBy: getMonsterID;
             index as i;
             last as isLast"
             [monster]="monster"

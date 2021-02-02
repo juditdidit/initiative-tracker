@@ -5,8 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './initiative.component.html',
   styleUrls: ['./initiative.component.scss']
 })
-export class InitiativeComponent {
-
-  constructor() { }
-
-}
+export class InitiativeComponent { }
